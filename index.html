@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Kislay Kashyap | JEE 2027</title>
@@ -57,13 +59,12 @@
     .container{
 
       width:95%;
-      max-width:1200px;
+
+      max-width:1400px;
 
       padding:45px;
 
       border-radius:28px;
-
-      text-align:center;
 
       background:rgba(255,255,255,0.08);
 
@@ -74,6 +75,14 @@
       box-shadow:0 0 40px rgba(255,120,0,0.8);
 
       animation:glow 3s infinite alternate;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+
+      gap:50px;
     }
 
     @keyframes glow{
@@ -87,10 +96,25 @@
       }
     }
 
+    .left-side{
+
+      width:35%;
+
+      text-align:center;
+    }
+
+    .right-side{
+
+      width:65%;
+
+      text-align:center;
+    }
+
     img{
 
-      width:190px;
-      height:190px;
+      width:220px;
+
+      height:220px;
 
       border-radius:50%;
 
@@ -122,18 +146,18 @@
 
       color:#ffcc00;
 
-      margin-bottom:40px;
+      margin-bottom:20px;
     }
 
     .thought{
 
-      font-size:1.55rem;
+      font-size:1.45rem;
 
       font-weight:900;
 
       line-height:2.2;
 
-      margin-bottom:45px;
+      margin-bottom:40px;
 
       color:#ffffff;
     }
@@ -142,7 +166,7 @@
 
       width:100%;
 
-      max-width:700px;
+      max-width:750px;
 
       margin:auto;
 
@@ -179,13 +203,13 @@
 
     .fire{
 
-      font-size:1.8rem;
+      font-size:1.7rem;
 
       font-weight:900;
 
       color:#ffcc00;
 
-      line-height:1.9;
+      line-height:1.8;
     }
 
     .spark{
@@ -210,9 +234,22 @@
       }
     }
 
-    /* MOBILE */
+    /* MOBILE RESPONSIVE */
 
-    @media(max-width:900px){
+    @media(max-width:1000px){
+
+      .container{
+
+        flex-direction:column;
+
+        text-align:center;
+      }
+
+      .left-side,
+      .right-side{
+
+        width:100%;
+      }
 
       h1{
         font-size:2.3rem;
@@ -240,8 +277,8 @@
       }
 
       img{
-        width:140px;
-        height:140px;
+        width:150px;
+        height:150px;
       }
 
       .container{
@@ -270,55 +307,68 @@
 
   <div class="container">
 
-    <img src="1.jpg" alt="Profile Photo">
+    <!-- LEFT SIDE -->
 
-    <h1>KISLAY KASHYAP CHAUBEY</h1>
+    <div class="left-side">
 
-    <h2>IIT JEE 2027 ASPIRANT 🔥🔥</h2>
+      <img src="1.jpg" alt="Profile Photo">
 
-    <div class="thought">
+      <h1>KISLAY KASHYAP CHAUBEY</h1>
 
-      IT'S NOT THE END...........<br><br>
-
-      RATHER IT'S JUST THE BEGINNING OF A NEW WARRIOR...........🔥<br><br>
-
-      A WARRIOR REBUILDING HIMSELF WITH<br>
-
-      FULL POTENTIAL... FULL DISCIPLINE... FULL HARDWORK...........🚀🔥<br><br>
-
-      AND A FIRE NOBODY CAN STOP...........🚀🔥<br><br>
-
-      THEY SAW FAILURE...........<br>
-
-      BUT THEY NEVER SAW THE COMEBACK...........🔥⚡<br><br>
-
-      ONE YEAR...........<br>
-
-      ONE MISSION...........<br>
-
-      IIT THIS TIMEEEE...........🔥🔥🔥
+      <h2>IIT JEE 2027 ASPIRANT 🔥🔥</h2>
 
     </div>
 
-    <div id="countdown-box">
 
-      <div id="countdown-title">
+    <!-- RIGHT SIDE -->
 
-        BOUNCING BACK IN...........🔥
+    <div class="right-side">
+
+      <div class="thought">
+
+        IT'S NOT THE END...........<br><br>
+
+        RATHER IT'S JUST THE BEGINNING OF A NEW WARRIOR...........🔥<br><br>
+
+        A WARRIOR REBUILDING HIMSELF WITH<br>
+
+        FULL POTENTIAL... FULL DISCIPLINE... FULL HARDWORK...........🚀🔥<br><br>
+
+        AND A FIRE NOBODY CAN STOP...........🚀🔥<br><br>
+
+        THEY SAW FAILURE...........<br>
+
+        BUT THEY NEVER SAW THE COMEBACK...........🔥⚡<br><br>
+
+        ONE YEAR...........<br>
+
+        ONE MISSION...........<br>
+
+        IIT THIS TIMEEEE...........🔥🔥🔥
 
       </div>
 
-      <div id="countdown">
+      <div id="countdown-box">
 
-        LOADING...........
+        <div id="countdown-title">
+
+          BOUNCING BACK IN...........🔥
+
+        </div>
+
+        <div id="countdown">
+
+          LOADING...........
+
+        </div>
 
       </div>
 
-    </div>
+      <div class="fire">
 
-    <div class="fire">
+        THE COMEBACK WILL BE LOUDER THAN THE FAILURE...........🔥🔥🔥
 
-      THE COMEBACK WILL BE LOUDER THAN THE FAILURE...........🔥🔥🔥
+      </div>
 
     </div>
 
