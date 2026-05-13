@@ -1,84 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kislay Kashyap</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: url('3.jpg') no-repeat center center/cover;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.5); /* Adding transparency for text readability */
-            padding: 20px;
-            border-radius: 10px;
-        }
-        img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: white;
-        }
-        h2 {
-            font-size: 1.5rem;
-            color: white;
-            margin-top: 10px;
-        }
-        #countdown-box {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-        }
-        #countdown-title {
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 10px;
-        }
-        #countdown {
-            font-size: 1.2rem;
-            color: white;
-        }
-    </style>
-    <script>
-        function startCountdown() {
-            const targetDate = new Date("2027-01-22T00:00:00").getTime();
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-            setInterval(() => {
-                const now = new Date().getTime();
-                const timeLeft = targetDate - now;
+  <title>Kislay Kashyap | JEE 2027</title>
 
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-                document.getElementById("countdown").innerHTML = `${days} DAYS, ${hours} HOURS, ${minutes} MINUTES, ${seconds} SECONDS`;
-            }, 1000);
-        }
-    </script>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('3.jpg') no-repeat center center/cover;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(2px);
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      width: 90%;
+      max-width: 800px;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 165, 0, 0.4);
+      box-shadow: 0 0 35px rgba(255, 85, 0, 0.5);
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 20px rgba(255, 85, 0, 0.4);
+      }
+
+      to {
+        box-shadow: 0 0 45px rgba(255, 85, 0, 0.9);
+      }
+    }
+
+    img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 4px solid orange;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(255, 140, 0, 0.8);
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #ffcc00;
+      margin-bottom: 25px;
+    }
+
+    .thought {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      margin-bottom: 30px;
+      color: #f5f5f5;
+    }
+
+    #countdown-box {
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 165, 0, 0.5);
+    }
+
+    #countdown-title {
+      font-size: 1.6rem;
+      color: #ff5e00;
+      margin-bottom: 15px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    #countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .fire {
+      margin-top: 25px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #ffcc00;
+      line-height: 1.7;
+    }
+
+    .spark {
+      position: absolute;
+      color: orange;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+      }
+
+      to {
+        transform: translateY(-120vh) rotate(360deg);
+      }
+    }
+
+    @media(max-width: 700px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .thought {
+        font-size: 1rem;
+      }
+
+      #countdown {
+        font-size: 1.1rem;
+      }
+
+      .fire {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
-<body onload="startCountdown()">
-    <div class="container">
-        <img src="1.jpg" alt="Profile Photo">
-        <h1>KISLAY KASHYAP</h1>
-        <h2>IIT JEE 2027 ASPIRANT</h2>
-        <div id="countdown-box">
-            <div id="countdown-title">BOUNCING BACKKKK INN..........</div>
-            <div id="countdown">Loading...</div>
-        </div>
-    </div>
-</body>
-</html>
 
+<body>
+
+  <!-- Floating Fire Emojis -->
+  <div class="spark" style="left:10%; animation-duration:6s;">🔥</div>
+  <div class="spark" style="left:25%; animation-duration:9s;">⚡</div>
+  <div class="spark" style="left:50%; animation-duration:7s;">🔥</div>
+  <div class="spark" style="left:75%; animation-duration:10s;">🚀</div>
+  <div class="spark" style="left:90%; animation-duration:8s;">🔥</div>
+
+  <div class="container">
+
+    <img src="1.jpg" alt="Profile Photo">
+
+    <h1>KISLAY KASHYAP</h1>
+
+    <h2>IIT JEE 2027 ASPIRANT 🔥</h2>
+
+    <div class="thought">
+
+      It's not the end...........<br><br>
+
+      It's just the beginning of a new warrior...........🔥<br><br>
+
+      A warrior rebuilding himself with full potential...........<br>
+      full discipline...........<br>
+      full hardwork...........<br>
+      and a fire nobody can stop...........🚀🔥<br><br>
+
+      They saw failure...........<br>
+      But they never saw the comeback...........⚡<br><br>
+
+      One year...........<br>
+      One mission...........<br>
+      IIT...........🔥
+
+    </div>
+
+    <div id="countdown-box">
+
+      <div id="countdown-title">
+        BOUNCING BACK IN...........🔥
+      </div>
+
+      <div id="countdown">
+        Loading...........
+      </div>
+
+    </div>
+
+    <div class="fire">
+
+      THE COMEBACK WILL BE LOUDER THAN THE FAILURE...........🔥🚀<br>
+
+      2027 WILL REMEMBER THIS NAME...........⚡🔥
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function startCountdown() {
+
+      // Approx JEE Main 2027 date
+      // Change later when official date comes
+      const targetDate = new Date("2027-01-22T00:00:00").getTime();
+
+      setInterval(() => {
+
+        const now = new Date().getTime();
+
+        const timeLeft = targetDate - now;
+
+        if (timeLeft <= 0) {
+
+          document.getElementById("countdown").innerHTML =
+            "THE BATTLE HAS BEGUN...........🔥";
+
+          return;
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+
+        const hours = Math.floor(
+          (timeLeft % (1000 * 60 * 60 * 24))
+          / (1000 * 60 * 60)
+        );
+
+        const minutes = Math.floor(
+          (timeLeft % (1000 * 60 * 60))
+          / (1000 * 60)
+        );
+
+        const seconds = Math.floor(
+          (timeLeft % (1000 * 60))
+          / 1000
+        );
+
+        document.getElementById("countdown").innerHTML =
+          `${days} DAYS ........... ${hours} HOURS ........... ${minutes} MINUTES ........... ${seconds} SECONDS`;
+
+      }, 1000);
+
+    }
+
+    startCountdown();
+
+  </script>
+
+</body>
+
+</html>
