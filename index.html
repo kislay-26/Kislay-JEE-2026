@@ -406,7 +406,7 @@
         );
 
         document.getElementById("countdown").innerHTML =
-        `${days} DAYS ....... ${hours} HOURS ....... ${minutes} MINUTES ....... ${seconds} SECONDS`;
+        `${days} DAYS ........... ${hours} HOURS ........... ${minutes} MINUTES ........... ${seconds} SECONDS`;
 
       },1000);
 
@@ -415,7 +415,73 @@
     startCountdown();
 
   </script>
+<!-- FULLSCREEN BUTTON -->
 
+<button id="fullscreen-btn" onclick="toggleFullscreen()">
+
+  FULLSCREEN 🔥
+
+</button>
+
+<style>
+
+  #fullscreen-btn{
+
+    position:fixed;
+
+    top:20px;
+    right:20px;
+
+    padding:12px 20px;
+
+    font-size:1rem;
+
+    font-weight:900;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:rgba(255,140,0,0.9);
+
+    color:white;
+
+    cursor:pointer;
+
+    z-index:999;
+
+    box-shadow:0 0 15px orange;
+
+    transition:0.3s;
+  }
+
+  #fullscreen-btn:hover{
+
+    transform:scale(1.08);
+
+    background:#ff6600;
+  }
+
+</style>
+
+<script>
+
+  function toggleFullscreen(){
+
+    if(!document.fullscreenElement){
+
+      document.documentElement.requestFullscreen();
+
+    } else {
+
+      if(document.exitFullscreen){
+
+        document.exitFullscreen();
+      }
+    }
+  }
+
+</script>
 </body>
 
 </html>
