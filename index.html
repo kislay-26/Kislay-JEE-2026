@@ -404,83 +404,107 @@
 
   <script>
 
-    function startCountdown(){
+  function startCountdown(){
 
-      const targetDate = new Date("2027-01-22T00:00:00").getTime();
+    const targetDate = new Date("2027-01-22T00:00:00").getTime();
 
-      setInterval(() => {
+    setInterval(() => {
 
-        const now = new Date().getTime();
+      const now = new Date().getTime();
 
-        const timeLeft = targetDate - now;
+      const timeLeft = targetDate - now;
 
-        if(timeLeft <= 0){
-
-          document.getElementById("countdown").innerHTML =
-          "THE BATTLE HAS BEGUN...........🔥";
-
-          return;
-        }
-
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-
-        const hours = Math.floor(
-          (timeLeft % (1000 * 60 * 60 * 24))
-          / (1000 * 60 * 60)
-        );
-
-        const minutes = Math.floor(
-          (timeLeft % (1000 * 60 * 60))
-          / (1000 * 60)
-        );
-
-        const seconds = Math.floor(
-          (timeLeft % (1000 * 60))
-          / 1000
-        );
+      if(timeLeft <= 0){
 
         document.getElementById("countdown").innerHTML =
+        "THE BATTLE HAS BEGUN...........🔥";
 
-        `
-        <div class="time-card">
-          <span>${days}</span>
-          <small>DAYS</small>
-        </div>
+        return;
+      }
 
-        <div class="time-card">
-          <span>${hours}</span>
-          <small>HOURS</small>
-        </div>
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
 
-        <div class="time-card">
-          <span>${minutes}</span>
-          <small>MINUTES</small>
-        </div>
+      const hours = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+      );
 
-        <div class="time-card">
-          <span>${seconds}</span>
-          <small>SECONDS</small>
-        </div>
-        `;
+      const minutes = Math.floor(
+        (timeLeft % (1000 * 60 * 60))
+        / (1000 * 60)
+      );
 
-      },1000);
+      const seconds = Math.floor(
+        (timeLeft % (1000 * 60))
+        / 1000
+      );
 
-    }
+      document.getElementById("countdown").innerHTML =
 
-    startCountdown();
+      `
+      <div class="time-card">
+        <span>${days}</span>
+        <small>DAYS</small>
+      </div>
 
-    function toggleFullscreen(){
+      <div class="time-card">
+        <span>${hours}</span>
+        <small>HOURS</small>
+      </div>
 
-      if(!document.fullscreenElement){
-        document.documentElement.requestFullscreen();
-      } else {
-        if(document.exitFullscreen){
-          document.exitFullscreen();
-        }
+      <div class="time-card">
+        <span>${minutes}</span>
+        <small>MINUTES</small>
+      </div>
+
+      <div class="time-card">
+        <span>${seconds}</span>
+        <small>SECONDS</small>
+      </div>
+      `;
+
+    },1000);
+
+  }
+
+  startCountdown();
+
+  function toggleFullscreen(){
+
+    const btn = document.getElementById("fullscreen-btn");
+
+    if(!document.fullscreenElement){
+
+      document.documentElement.requestFullscreen();
+
+      btn.innerHTML = "EXIT FULLSCREEN ❌";
+
+    } else {
+
+      if(document.exitFullscreen){
+
+        document.exitFullscreen();
+
+        btn.innerHTML = "FULLSCREEN 🔥";
       }
     }
+  }
 
-  </script>
+  document.addEventListener("fullscreenchange", () => {
+
+    const btn = document.getElementById("fullscreen-btn");
+
+    if(document.fullscreenElement){
+
+      btn.innerHTML = "EXIT FULLSCREEN ❌";
+
+    } else {
+
+      btn.innerHTML = "FULLSCREEN 🔥";
+    }
+  });
+
+</script>
 
 </body>
 
